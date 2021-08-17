@@ -23,6 +23,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+from json import load
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +34,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hjur5_j5!p*4o4clx&t=uvfd7eqr7y5!ar6nc5px**06qh(j!5'
+
+SECRET_KEY = load(open('secret.json', 'r'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
