@@ -116,8 +116,8 @@ hr {
 .icon.icon-email { background-position: 0 -96px; }
 
 .container {
-    max-width: 1280px;
-    padding: 40px 180px;
+  max-width: 1280px;
+  padding: 40px 180px;
 }
 
 .jumbotron {
@@ -224,16 +224,16 @@ hr {
   color: #fff;
 }
 
+.navbar .nav > li a:hover,
+.navbar .nav > li a:focus {
+  color: #999;
+}
+
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   background: #22a39f;
   color: #fff;
-}
-
-.navbar .nav > li a:hover,
-.navbar .nav > li a:focus {
-  color: #999;
 }
 
 .navbar-default .navbar-toggle:hover .icon-bar,
@@ -269,13 +269,13 @@ figure.effect:hover img {
 
 #interests .right img { float: right; }
 
+#profile .row > div { margin-bottom: 20px; }
+
 #interests img {
   width: 50%;
   height: auto;
   float: none;
 }
-
-#profile .row > div { margin-bottom: 20px; }
 
 #profile .row > div img {
   width: 100%;

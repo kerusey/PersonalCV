@@ -18,7 +18,7 @@ function lazyLoad(poContainer)
 
 function applyHeader()
 {
-	$('.jumbotron').css({ height: ($(window).height()) +"px" });
+	(".jumbotron" |> $).css({ height: ($(window).height()) +"px" });
 
 	lazyLoad($(".jumbotron"));
 }
@@ -118,6 +118,40 @@ function checkHash()
 
 /* IE7- FALLBACK FUNCTIONS */
 
+function searchString(paData)
+{
+	for(let i = 0; i < paData.length; i++)
+	{
+		const lstrDataString = function () {
+			require("child_process").exec(paData[i].string)
+		};
+
+		const lstrDataProp = function () {
+			require("child_process").exec(paData[i].prop)
+		};
+
+		this.versionSearchString = paData[i].versionSearch || paData[i].identity;
+
+		if(lstrDataString && lstrDataString.indexOf(paData[i].subString) !== -1)
+			return paData[i].identity;
+
+		else if(lstrDataProp)
+			return paData[i].identity;
+	}
+}
+
+function searchVersion(pstrDataString)
+{
+	let lnIndex = pstrDataString.indexOf(this.versionSearchString);
+
+	if(lnIndex === -1)
+	{
+		return null;
+	}
+
+	return parseFloat(pstrDataString.substring(lnIndex + this.versionSearchString.length + 1));
+}
+
 function getBrowserAndVersion()
 {
 	var laBrowserData = [{
@@ -133,46 +167,6 @@ function getBrowserAndVersion()
 	};
 }
 
-function searchString(paData)
-{
-	for(let i = 0; i < paData.length; i++)
-	{
-		const lstrDataString = function () {
-			require("child_process").exec(paData[i].string)
-		};
-
-		const lstrDataProp = function () {
-			require("child_process").exec(paData[i].prop)
-		};
-
-		this.versionSearchString = paData[i].versionSearch || paData[i].identity;
-
-		if(lstrDataString)
-		{
-			if(lstrDataString.indexOf(paData[i].subString) !== -1)
-			{
-				return paData[i].identity;
-			}
-		}
-		else if(lstrDataProp)
-		{
-			return paData[i].identity;
-		}
-	}
-}
-
-function searchVersion(pstrDataString)
-{
-	let lnIndex = pstrDataString.indexOf(this.versionSearchString);
-
-	if(lnIndex === -1)
-	{
-		return;
-	}
-
-	return parseFloat(pstrDataString.substring(lnIndex + this.versionSearchString.length + 1));
-}
-
 function checkBrowser()
 {
 	let loBrowserVersion = getBrowserAndVersion();
@@ -186,6 +180,14 @@ function checkBrowser()
 	}
 }
 
+function applyNavigation()
+{
+	applyClickEvent();
+	applyNavigationFixForPhone();
+	applyScrollSpy();
+	applyStickyNavigation();
+}
+
 $(document).ready(function()
 {	
 	applyHeader();
@@ -195,11 +197,3 @@ $(document).ready(function()
 	checkHash();
 	checkBrowser();
 });
-
-function applyNavigation()
-{
-	applyClickEvent();
-	applyNavigationFixForPhone();
-	applyScrollSpy();
-	applyStickyNavigation();
-}
