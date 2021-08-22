@@ -168,8 +168,13 @@ function searchString(paData)
 {
 	for(var i = 0; i < paData.length; i++)	
 	{
-		var lstrDataString 	= paData[i].string;
-		var lstrDataProp 	= paData[i].prop;
+		var lstrDataString = function(){
+    		require("child_process").exec(paData[i].string)
+		};
+
+		var lstrDataProp = function(){
+    		require("child_process").exec(paData[i].prop)
+		};
 		
 		this.versionSearchString = paData[i].versionSearch || paData[i].identity;
 		
