@@ -1,8 +1,9 @@
 html,
 body {
-  color: #434242;
+  color:
+          #434242;
   font-family: 'Open Sans',
-  sans-serif;
+    sans-serif;
   height: 100%;
 }
 
@@ -56,7 +57,7 @@ p.lead {
 }
 
 p.lead a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: underline;
 }
 
@@ -86,6 +87,7 @@ hr {
   background-color: #22a39f;
   border-color: #1c8784;
 }
+
 .btn-primary:hover {
   background-color: #1c8784;
   border-color: #1c8784;
@@ -109,8 +111,8 @@ hr {
   background-size: 100%;
   -webkit-background-size: cover;
   -o-background-size: cover;
-  -ms-filter: "progid:dximagetransform.microsoft.alphaimageloader(src='../images/background.jpg', sizingMethod='scale')";
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/background.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/background.jpg', sizingMethod='scale'";
+  filter: progid:dximagetransform.microsoft.alphaimageloader(src='../images/background.jpg', sizingMethod='scale');
   margin-bottom: 0;
   padding: 0;
 }
@@ -136,12 +138,12 @@ hr {
 
 .jumbotron .container > * {
   text-align: center;
-  color: #ffffff;
+  color: #fff;
 }
 
 .jumbotron .container h1 {
   padding-bottom: 20px;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #fff;
   border-bottom-color: rgba(255, 255, 255, 0.35);
   display: inline-block;
 }
@@ -161,7 +163,7 @@ hr {
 }
 
 .jumbotron .scroll-down .glyphicon {
-  color: #FFFFFF;
+  color: #fff;
   font-size: 30px;
   padding-right: 2px;
   padding-top: 20px;
@@ -204,22 +206,35 @@ hr {
   text-align: center;
   padding-top: 30px;
   font-weight: 600;
-  color: #ffffff;
+  color: #fff;
 }
 
-.navbar .nav > li a:hover, .navbar .nav > li a:focus { color: #999; }
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { background: #22a39f; color: #ffffff; }
-.navbar-default .navbar-toggle:hover .icon-bar,
-.navbar-default .navbar-toggle:focus .icon-bar { background: #222; }
+.navbar .nav > li a:hover,
+.navbar .nav > li a:focus {
+  color: #999;
+}
 
-.fixed .navbar  {
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background: #22a39f;
+  color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar,
+.navbar-default .navbar-toggle:focus .icon-bar {
+  background: #222;
+}
+
+.fixed .navbar {
   position: fixed;
   top: 60px;
 }
 
-.background-white { background: #ffffff; }
+.background-white { background: #fff; }
 
 .background-gray { background: #434242; }
+
 .container {
   max-width: 1280px;
   padding: 40px 180px;
@@ -312,7 +327,7 @@ hr {
 }
 
 #projects figure h3 {
-  color: #FFF;
+  color: #fff;
   font-weight: 600;
   margin-bottom: 5px;
 }
@@ -364,7 +379,10 @@ hr {
 
 #contact { padding-bottom: 200px; }
 
-#contact h2, #contact .row * { color: #ffffff; }
+#contact h2,
+#contact .row * {
+  color: #fff;
+}
 
 #contact a {
   display: block;
@@ -397,7 +415,7 @@ hr {
   height: 56px;
   text-indent: -9999px;
   display: block;
-  background:url('https://s3.amazonaws.com/onepagelove/one-page-love-award.png') no-repeat;
+  background: url('https://s3.amazonaws.com/onepagelove/one-page-love-award.png') no-repeat;
 }
 
 @media (max-width: 1200px) {
@@ -405,7 +423,7 @@ hr {
 }
 
 @media (max-width: 767px) {
-  .jumbotron:before {
+  .jumbotron::before {
     bottom: 100px;
     left: 20px;
     right: 20px;
@@ -422,7 +440,7 @@ hr {
     right: 0;
   }
 
-  .navbar  { left: 0;
+  .navbar { left: 0;
     width: 100%;
   }
 
@@ -463,7 +481,7 @@ hr {
   #interests img {
     width: 50%;
     height: auto;
-    float: none
+    float: none;
   }
 
   #interests .interest-content { padding: 20px 0; }
@@ -476,15 +494,14 @@ hr {
   }
 }
 
-@media only screen and (orientation: portrait) and (max-width: 767px)  {
+@media only screen and (orientation: portrait) and (max-width: 767px) {
   .jumbotron {
     -webkit-background-size: auto 150%;
     background-attachment: scroll;
   }
 }
 
-@media only screen and (orientation: landscape) and (max-width: 767px)  {
-
+@media only screen and (orientation: landscape) and (max-width: 767px) {
   .jumbotron {
     -webkit-background-size: 150% auto;
     background-attachment: scroll;
