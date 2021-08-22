@@ -1,9 +1,6 @@
 
 :root {
   --main-color: #eaeaea;
-}
-
-:root {
   --stroke-color: black;
 }
 
@@ -29,14 +26,19 @@ h2 {
   text-align: center;
 }
 
-h1, h2 {
-  -webkit-transition: opacity 0.5s linear,
+h1,
+h2 {
+  -webkit-transition:
+    opacity 0.5s linear,
     margin-top 0.5s linear; /* Safari */
-  transition: opacity 0.5s linear,
+
+  transition:
+    opacity 0.5s linear,
     margin-top 0.5s linear;
 }
 
-.loading h1, .loading h2 {
+.loading h1,
+.loading h2 {
   margin-top: 0;
   opacity: 0;
 }
@@ -58,7 +60,7 @@ h1, h2 {
   background: var(--stroke-color);
 }
 
-.gear:before {
+.gear::before {
   position: absolute;
   left: 5px;
   top: 5px;
@@ -70,13 +72,14 @@ h1, h2 {
   background: var(--main-color);
 }
 
-.gear:after {
+.gear::after {
   position: absolute;
   left: 25px;
   top: 25px;
   z-index: 3;
   content: "";
-  width: 70px; height: 70px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   border: 5px solid var(--stroke-color);
   box-sizing: border-box;
@@ -101,13 +104,14 @@ h1, h2 {
   left: -15px;
   top: 50%;
   z-index: 0;
-  width: 150px; height: 30px;
+  width: 150px;
+  height: 30px;
   margin-top: -15px;
   border-radius: 5px;
   background: var(--stroke-color);
 }
 
-.gear .bar:before {
+.gear .bar::before {
   position: absolute;
   left: 5px;
   top: 5px;

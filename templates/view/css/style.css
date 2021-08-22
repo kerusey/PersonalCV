@@ -66,7 +66,6 @@ p.lead {
   background: url('https://s3.amazonaws.com/onepagelove/one-page-love-award.png') no-repeat;
 }
 
-
 p.lead a {
   color: #fff;
   text-decoration: underline;
@@ -143,6 +142,11 @@ hr {
   opacity: 0.75;
   filter: alpha(opacity=75);
   z-index: 2;
+}
+
+.container {
+    padding: 60px 20px;
+    min-width: 280px;
 }
 
 .jumbotron .container {
@@ -247,14 +251,6 @@ hr {
   top: 60px;
 }
 
-.background-white { background: #fff; }
-
-.background-gray { background: #434242; }
-
-#interests .right img { float: right; }
-
-#profile .row > div { margin-bottom: 20px; }
-
 figure.effect img {
   width: -webkit-calc(100% + 20px);
   width: calc(100% + 20px);
@@ -271,6 +267,20 @@ figure.effect:hover img {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+
+.background-white { background: #fff; }
+
+.background-gray { background: #434242; }
+
+#interests .right img { float: right; }
+
+#interests img {
+    width: 50%;
+    height: auto;
+    float: none;
+}
+
+#profile .row > div { margin-bottom: 20px; }
 
 #profile .row > div img {
   width: 100%;
@@ -487,27 +497,11 @@ figure.effect figcaption {
 
   .fixed .navbar { top: 0; }
 
-  .container {
-    padding: 60px 20px;
-    min-width: 280px;
-  }
-
   .hidden-phone { display: none; }
-
-  #interests img {
-    width: 80%;
-    height: auto;
-  }
 
   #projects figure img { width: 110%; }
 
   #interests > * { text-align: center; }
-
-  #interests img {
-    width: 50%;
-    height: auto;
-    float: none;
-  }
 
   #profile .row * { text-align: center; }
 
