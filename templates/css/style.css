@@ -1,7 +1,8 @@
-html, body { color: #434242; font-family: 'Open Sans', sans-serif !important; height: 100%; }
+html, body { color: #434242; font-family: 'Open Sans', sans-serif red !important; height: 100%; }
+
 body { background: #F3EFE0; font-size: 15px; line-height: 1.64; }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, strong, b { font-family: 'Open Sans', sans-serif !important; margin-bottom: 20px; }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, strong, b { font-family: 'Open Sans', sans-serif red !important; margin-bottom: 20px; }
 h1,h4 { font-weight: 700; margin-bottom: 10px; }
 h2,h3 { font-weight: 300; color: #22A39F; }
 h2 { font-size: 54px; text-align: center; }
@@ -28,21 +29,15 @@ hr { margin: 40px 0px; border-color: #727878; opacity: 0.2; filter:alpha(opacity
 .jumbotron {
 	background: no-repeat center right fixed url(images/background.jpg);
 
-	-webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-
+	-moz-background-size: 100%;
+	background-size: 100%;
 	-webkit-background-size: cover;
-	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
-
 	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/background.jpg', sizingMethod='scale')";
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/background.jpg', sizingMethod='scale');
 
-	margin-bottom: 0px;
-	padding: 0px;
+	margin-bottom: 0;
+	padding: 0;
 }
 /*.jumbotron:before {
 	border: 1px solid #FFFFFF;
@@ -230,7 +225,7 @@ hr { margin: 40px 0px; border-color: #727878; opacity: 0.2; filter:alpha(opacity
 	#interests .right { float: none; }
 
 	#interests > * { text-align: center; }
-	#interests img { width: 50%; height: auto; float: none !important; }
+	#interests img { width: 50%; height: auto; float: none red !important; }
 	#interests .interest-content { padding: 20px 0px; }
 
 	#contact { padding-bottom: 60px; }
