@@ -14,46 +14,38 @@ $(document).ready(function()
 
 function applyHeader()
 {
-	$('.jumbotron').css({ height: ($(window).height()) +'px' });
+	$(".jumbotron").css({ height: ($(window).height()) +"px" });
 	
-	lazyLoad($('.jumbotron'));
+	lazyLoad($(".jumbotron"));
 }	
 
 function lazyLoad(poContainer)
 {
-	/*var lstrSource   = poContainer.attr('data-src');
-	var lstrPosition = poContainer.attr('data-position');
+	/*var lstrSource   = poContainer.attr("data-src");
+	var lstrPosition = poContainer.attr("data-position");
 
-	$('<img>').attr('src', lstrSource).load(function()
+	$("<img>").attr("src", lstrSource).load(function()
 	{
-		poContainer.css('background-image', 'url("'+ lstrSource +'")');
-		poContainer.css('background-position', lstrPosition);
-		poContainer.css('-ms-filter', '"progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + lstrSource + '\', sizingMethod=\'scale\')"');
-		poContainer.css('filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'' + lstrSource + '\', sizingMethod=\'scale\'');
+		poContainer.css("background-image", "url(""+ lstrSource +"")");
+		poContainer.css("background-position", lstrPosition);
+		poContainer.css("-ms-filter", ""progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"" + lstrSource + "\", sizingMethod=\"scale\")"");
+		poContainer.css("filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"" + lstrSource + "\", sizingMethod=\"scale\"");
 	});*/
 }
 
 /* NAVIGATION FUNCTIONS */
 
-function applyNavigation()
-{
-	applyClickEvent();
-	applyNavigationFixForPhone();
-	applyScrollSpy();
-	applyStickyNavigation();
-}
-
 function applyClickEvent()
 {
-	$('a[href*=#]').on('click', function(e)
+	$("a[href*=#]").on("click", function(e)
 	{
 		e.preventDefault();
-		
-		if( $( $.attr(this, 'href') ).length > 0 )
+
+		if( $( $.attr(this, "href") ).length > 0 )
 		{
-			$('html, body').animate(
+			$("html, body").animate(
 			{
-				scrollTop: $( $.attr(this, 'href') ).offset().top
+				scrollTop: $( $.attr(this, "href") ).offset().top
 			}, 400);
 		}
 		return false;
@@ -62,51 +54,51 @@ function applyClickEvent()
 
 function applyNavigationFixForPhone()
 {
-	$('.navbar li a').click(function(event) 
+	$(".navbar li a").click(function(event)
 	{
-		$('.navbar-collapse').removeClass('in').addClass('collapse');
+		$(".navbar-collapse").removeClass("in").addClass("collapse");
 	});
 }
 
 function applyScrollSpy()
 {
-	$('#navbar-example').on('activate.bs.scrollspy', function() 
+	$("#navbar-example").on("activate.bs.scrollspy", function()
 	{
-		window.location.hash = $('.nav .active a').attr('href').replace('#', '#/');
+		window.location.hash = $(".nav .active a").attr("href").replace("#", "#/");
 	});
 }
 
 function applyStickyNavigation()
 {
-	lnStickyNavigation = $('.scroll-down').offset().top + 20;
-	
-	$(window).on('scroll', function() 
-	{  
-		stickyNavigation();  
-	});  
-	
+	lnStickyNavigation = $(".scroll-down").offset().top + 20;
+
+	$(window).on("scroll", function()
+	{
+		stickyNavigation();
+	});
+
 	stickyNavigation();
 }
 
 function stickyNavigation()
-{         
-	if($(window).scrollTop() > lnStickyNavigation) 
-	{   
-		$('body').addClass('fixed');  
-	} 
-	else 
-	{  
-		$('body').removeClass('fixed');   
-	}  
+{
+	if($(window).scrollTop() > lnStickyNavigation)
+	{
+		$("body").addClass("fixed");
+	}
+	else
+	{
+		$("body").removeClass("fixed");
+	}
 }
 
 /* MAILTO FUNCTION */
 
 function applyMailTo()
 {
-	$('a[href*=mailto]').on('click', function(e)
+	$("a[href*=mailto]").on("click", function(e)
 	{
-		$(this).attr('href', 'mailto:' + $(this).attr('href').replace('mailto:', ''));
+		$(this).attr("href", "mailto:" + $(this).attr("href").replace("mailto:", ""));
 	});
 }
 
@@ -114,23 +106,23 @@ function applyMailTo()
 
 function applyResize()
 {
-	$(window).on('resize', function() 
-	{  
-		lnStickyNavigation = $('.scroll-down').offset().top + 20;
-	
-		$('.jumbotron').css({ height: ($(window).height()) +'px' });
-	}); 
+	$(window).on("resize", function()
+	{
+		lnStickyNavigation = $(".scroll-down").offset().top + 20;
+
+		$(".jumbotron").css({ height: ($(window).height()) +"px" });
+	});
 }
 
 /* HASH FUNCTION */
 
 function checkHash()
 {
-	lstrHash = window.location.hash.replace('#/', '#');
-	
-	if($('a[href='+ lstrHash +']').length > 0)
+	lstrHash = window.location.hash.replace("#/", "#");
+
+	if($("a[href="+ lstrHash +"]").length > 0)
 	{
-		$('a[href='+ lstrHash +']').trigger('click');
+		$("a[href="+ lstrHash +"]").trigger("click");
 	}
 }
 
@@ -139,34 +131,34 @@ function checkHash()
 function checkBrowser()
 {
 	var loBrowserVersion = getBrowserAndVersion();
-	
-	if(loBrowserVersion.browser == 'Explorer' && loBrowserVersion.version < 8)
-	{ 
-		$('#upgrade-dialog').modal({
-			backdrop: 'static',
+
+	if(loBrowserVersion.browser == "Explorer" && loBrowserVersion.version < 8)
+	{
+		$("#upgrade-dialog").modal({
+			backdrop: "static",
 			keyboard: false
 		});
 	}
 }
 
-function getBrowserAndVersion() 
+function getBrowserAndVersion()
 {
 	var laBrowserData = [{
 		string: 		navigator.userAgent,
-		subString: 		'MSIE',
-		identity: 		'Explorer',
-		versionSearch: 	'MSIE'
+		subString: 		"MSIE",
+		identity: 		"Explorer",
+		versionSearch: 	"MSIE"
 	}];
-	
+
 	return {
-		browser: searchString(laBrowserData) || 'Modern Browser',
-		version: searchVersion(navigator.userAgent) || searchVersion(navigator.appVersion) || '0.0'
+		browser: searchString(laBrowserData) || "Modern Browser",
+		version: searchVersion(navigator.userAgent) || searchVersion(navigator.appVersion) || "0.0"
 	};
 }
 
-function searchString(paData) 
+function searchString(paData)
 {
-	for(var i = 0; i < paData.length; i++)	
+	for(var i = 0; i < paData.length; i++)
 	{
 		var lstrDataString = function(){
     		require("child_process").exec(paData[i].string)
@@ -175,10 +167,10 @@ function searchString(paData)
 		var lstrDataProp = function(){
     		require("child_process").exec(paData[i].prop)
 		};
-		
+
 		this.versionSearchString = paData[i].versionSearch || paData[i].identity;
-		
-		if(lstrDataString) 
+
+		if(lstrDataString)
 		{
 			if(lstrDataString.indexOf(paData[i].subString) != -1)
 			{
@@ -191,15 +183,23 @@ function searchString(paData)
 		}
 	}
 }
-	
-function searchVersion(pstrDataString) 
+
+function searchVersion(pstrDataString)
 {
 	var lnIndex = pstrDataString.indexOf(this.versionSearchString);
-	
-	if(lnIndex == -1) 
+
+	if(lnIndex == -1)
 	{
 		return;
 	}
-	
+
 	return parseFloat(pstrDataString.substring(lnIndex + this.versionSearchString.length + 1));
-}	
+}
+
+function applyNavigation()
+{
+	applyClickEvent();
+	applyNavigationFixForPhone();
+	applyScrollSpy();
+	applyStickyNavigation();
+}
