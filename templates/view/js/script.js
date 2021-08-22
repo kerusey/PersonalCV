@@ -1,23 +1,13 @@
 var lnStickyNavigation;
 
-$(document).ready(function()
-{	
-	applyHeader();
-	applyNavigation(); 
-	applyMailTo();
-	applyResize();
-	checkHash();
-	checkBrowser();
-});
-
 /* HEADER FUNCTIONS */
 
 function applyHeader()
 {
 	$(".jumbotron").css({ height: ($(window).height()) +"px" });
-	
+
 	lazyLoad($(".jumbotron"));
-}	
+}
 
 function lazyLoad(poContainer)
 {
@@ -195,6 +185,16 @@ function searchVersion(pstrDataString)
 
 	return parseFloat(pstrDataString.substring(lnIndex + this.versionSearchString.length + 1));
 }
+
+$(document).ready(function()
+{	
+	applyHeader();
+	applyNavigation(); 
+	applyMailTo();
+	applyResize();
+	checkHash();
+	checkBrowser();
+});
 
 function applyNavigation()
 {
