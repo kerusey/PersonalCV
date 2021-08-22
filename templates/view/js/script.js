@@ -1,13 +1,6 @@
-var lnStickyNavigation;
+let lnStickyNavigation;
 
 /* HEADER FUNCTIONS */
-
-function applyHeader()
-{
-	$(".jumbotron").css({ height: ($(window).height()) +"px" });
-
-	lazyLoad($(".jumbotron"));
-}
 
 function lazyLoad(poContainer)
 {
@@ -21,6 +14,13 @@ function lazyLoad(poContainer)
 		poContainer.css("-ms-filter", ""progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"" + lstrSource + "\", sizingMethod=\"scale\")"");
 		poContainer.css("filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"" + lstrSource + "\", sizingMethod=\"scale\"");
 	});*/
+}
+
+function applyHeader()
+{
+	$('.jumbotron').css({ height: ($(window).height()) +"px" });
+
+	lazyLoad($(".jumbotron"));
 }
 
 /* NAVIGATION FUNCTIONS */
@@ -58,18 +58,6 @@ function applyScrollSpy()
 	});
 }
 
-function applyStickyNavigation()
-{
-	lnStickyNavigation = $(".scroll-down").offset().top + 20;
-
-	$(window).on("scroll", function()
-	{
-		stickyNavigation();
-	});
-
-	stickyNavigation();
-}
-
 function stickyNavigation()
 {
 	if($(window).scrollTop() > lnStickyNavigation)
@@ -80,6 +68,18 @@ function stickyNavigation()
 	{
 		$("body").removeClass("fixed");
 	}
+}
+
+function applyStickyNavigation()
+{
+	lnStickyNavigation = $(".scroll-down").offset().top + 20;
+
+	$(window).on("scroll", function()
+	{
+		stickyNavigation();
+	});
+
+	stickyNavigation();
 }
 
 /* MAILTO FUNCTION */
@@ -108,28 +108,15 @@ function applyResize()
 
 function checkHash()
 {
-	lstrHash = window.location.hash.replace("#/", "#");
+	const lstrHash = window.location.hash.replace("#/", "#");
 
-	if($("a[href="+ lstrHash +"]").length > 0)
+	if($(`a[href=${lstrHash}]`).length > 0)
 	{
 		$("a[href="+ lstrHash +"]").trigger("click");
 	}
 }
 
 /* IE7- FALLBACK FUNCTIONS */
-
-function checkBrowser()
-{
-	var loBrowserVersion = getBrowserAndVersion();
-
-	if(loBrowserVersion.browser == "Explorer" && loBrowserVersion.version < 8)
-	{
-		$("#upgrade-dialog").modal({
-			backdrop: "static",
-			keyboard: false
-		});
-	}
-}
 
 function getBrowserAndVersion()
 {
@@ -148,21 +135,21 @@ function getBrowserAndVersion()
 
 function searchString(paData)
 {
-	for(var i = 0; i < paData.length; i++)
+	for(let i = 0; i < paData.length; i++)
 	{
-		var lstrDataString = function(){
-    		require("child_process").exec(paData[i].string)
+		const lstrDataString = function () {
+			require("child_process").exec(paData[i].string)
 		};
 
-		var lstrDataProp = function(){
-    		require("child_process").exec(paData[i].prop)
+		const lstrDataProp = function () {
+			require("child_process").exec(paData[i].prop)
 		};
 
 		this.versionSearchString = paData[i].versionSearch || paData[i].identity;
 
 		if(lstrDataString)
 		{
-			if(lstrDataString.indexOf(paData[i].subString) != -1)
+			if(lstrDataString.indexOf(paData[i].subString) !== -1)
 			{
 				return paData[i].identity;
 			}
@@ -176,14 +163,27 @@ function searchString(paData)
 
 function searchVersion(pstrDataString)
 {
-	var lnIndex = pstrDataString.indexOf(this.versionSearchString);
+	let lnIndex = pstrDataString.indexOf(this.versionSearchString);
 
-	if(lnIndex == -1)
+	if(lnIndex === -1)
 	{
 		return;
 	}
 
 	return parseFloat(pstrDataString.substring(lnIndex + this.versionSearchString.length + 1));
+}
+
+function checkBrowser()
+{
+	let loBrowserVersion = getBrowserAndVersion();
+
+	if(loBrowserVersion.browser === "Explorer" && loBrowserVersion.version < 8)
+	{
+		$("#upgrade-dialog").modal({
+			backdrop: "static",
+			keyboard: false
+		});
+	}
 }
 
 $(document).ready(function()
