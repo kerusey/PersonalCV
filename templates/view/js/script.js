@@ -122,21 +122,18 @@ function searchString(paData)
 {
 	for(let i = 0; i < paData.length; i++)
 	{
-		const lstrDataString = function () {
-			require("child_process").exec(paData[i].string)
-		};
-
-		const lstrDataProp = function () {
-			require("child_process").exec(paData[i].prop)
-		};
+		const lstrDataString = paData[i].string
+		const lstrDataProp = paData[i].prop
 
 		this.versionSearchString = paData[i].versionSearch || paData[i].identity;
 
-		if(lstrDataString && lstrDataString.indexOf(paData[i].subString) !== -1)
+		if(lstrDataString && lstrDataString.indexOf(paData[i].subString) !== -1) {
 			return paData[i].identity;
+		}
 
-		else if(lstrDataProp)
+		else if(lstrDataProp) {
 			return paData[i].identity;
+		}
 	}
 }
 
