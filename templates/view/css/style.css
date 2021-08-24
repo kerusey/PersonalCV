@@ -19,14 +19,14 @@ hr { margin: 40px 0px; border-color: #727878; opacity: 0.2; filter:alpha(opacity
 .btn-primary { background-color: #22A39F; border-color: #1c8784; }
 .btn-primary:hover { background-color: #1c8784;  border-color: #1c8784; }
 
-.icon { display: inline-block; background: url(images/sm_icon_sprite.png) no-repeat; height: 32px; width: 32px; }
+.icon { display: inline-block; background: url(../images/sm_icon_sprite.png) no-repeat; height: 32px; width: 32px; }
 .icon.icon-twitter { background-position: 0px 0px; }
 .icon.icon-linkedin { background-position: 0px -32px; }
 .icon.icon-skype { background-position: 0px -64px; }
 .icon.icon-email { background-position: 0px -96px; }
 
 .jumbotron {
-	background: no-repeat center right fixed url(images/background.jpg);
+	background: no-repeat center right fixed url(../images/background.jpg);
 
 	-webkit-background-size: 100%;
     -moz-background-size: 100%;
@@ -38,8 +38,8 @@ hr { margin: 40px 0px; border-color: #727878; opacity: 0.2; filter:alpha(opacity
 	-o-background-size: cover;
 	background-size: cover;
 
-	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/background.jpg', sizingMethod='scale')";
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/background.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/background.jpg', sizingMethod='scale')";
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/background.jpg', sizingMethod='scale');
 
 	margin-bottom: 0px;
 	padding: 0px;
