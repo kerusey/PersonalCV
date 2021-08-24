@@ -2,8 +2,13 @@ let lnStickyNavigation;
 
 /* HEADER FUNCTIONS */
 
-function lazyLoad(poContainer)
-{
+function applyHeader() {
+	$(".jumbotron").css({ height: ($(window).height()) +"px" });
+	
+	lazyLoad($(".jumbotron"));
+}	
+
+function lazyLoad(poContainer) {
 	/*var lstrSource   = poContainer.attr("data-src");
 	var lstrPosition = poContainer.attr("data-position");
 
@@ -16,25 +21,14 @@ function lazyLoad(poContainer)
 	});*/
 }
 
-function applyHeader()
-{
-	(".jumbotron" |> $).css({ height: ($(window).height()) +"px" });
-
-	lazyLoad($(".jumbotron"));
-}
-
 /* NAVIGATION FUNCTIONS */
 
-function applyClickEvent()
-{
-	$("a[href*=#]").on("click", function(e)
-	{
+function applyClickEvent() {
+	$("a[href*=#]").on("click", function(e) {
 		e.preventDefault();
-
-		if( $( $.attr(this, "href") ).length > 0 )
-		{
-			$("html, body").animate(
-			{
+		
+		if ( $( $.attr(this, "href") ).length > 0 ) {
+			$("html, body").animate({
 				scrollTop: $( $.attr(this, "href") ).offset().top
 			}, 400);
 		}
@@ -42,116 +36,96 @@ function applyClickEvent()
 	});
 }
 
-function applyNavigationFixForPhone()
-{
-	$(".navbar li a").click(function(event)
-	{
+function applyNavigationFixForPhone() {
+	$(".navbar li a").click(function(event) {
 		$(".navbar-collapse").removeClass("in").addClass("collapse");
 	});
 }
 
-function applyScrollSpy()
-{
-	$("#navbar-example").on("activate.bs.scrollspy", function()
-	{
+function applyScrollSpy() {
+	$("#navbar-example").on("activate.bs.scrollspy", function() {
 		window.location.hash = $(".nav .active a").attr("href").replace("#", "#/");
 	});
 }
 
 function stickyNavigation()
 {
-	if($(window).scrollTop() > lnStickyNavigation)
-	{
+	if ($(window).scrollTop() > lnStickyNavigation) {
 		$("body").addClass("fixed");
 	}
-	else
-	{
+	else {
 		$("body").removeClass("fixed");
 	}
 }
 
-function applyStickyNavigation()
-{
+function applyStickyNavigation() {
 	lnStickyNavigation = $(".scroll-down").offset().top + 20;
-
-	$(window).on("scroll", function()
-	{
-		stickyNavigation();
-	});
-
+	
+	$(window).on("scroll", function() {
+		stickyNavigation();  
+	});  
+	
 	stickyNavigation();
 }
 
 /* MAILTO FUNCTION */
 
-function applyMailTo()
-{
-	$("a[href*=mailto]").on("click", function(e)
-	{
+function applyMailTo() {
+	$("a[href*=mailto]").on("click", function(e) {
 		$(this).attr("href", "mailto:" + $(this).attr("href").replace("mailto:", ""));
 	});
 }
 
 /* RESIZE FUNCTION */
 
-function applyResize()
-{
-	$(window).on("resize", function()
-	{
+function applyResize() {
+	$(window).on("resize", function() {
 		lnStickyNavigation = $(".scroll-down").offset().top + 20;
-
+	
 		$(".jumbotron").css({ height: ($(window).height()) +"px" });
-	});
+	}); 
 }
 
 /* HASH FUNCTION */
 
-function checkHash()
-{
-	const lstrHash = window.location.hash.replace("#/", "#");
-
-	if($(`a[href=${lstrHash}]`).length > 0)
-	{
+function checkHash() {
+	lstrHash = window.location.hash.replace("#/", "#");
+	
+	if ($(lstrHash + "a[href=" +"]").length > 0) {
 		$("a[href="+ lstrHash +"]").trigger("click");
 	}
 }
 
 /* IE7- FALLBACK FUNCTIONS */
 
-function searchString(paData)
-{
-	for(let i = 0; i < paData.length; i++)
-	{
-		const lstrDataString = paData[i].string
-		const lstrDataProp = paData[i].prop
+function searchString(paData) {
+	for(let i = 0; i < paData.length; i++) {
+		let lstrDataString 	= paData[i].string;
+		let lstrDataProp 	= paData[i].prop;
 
 		this.versionSearchString = paData[i].versionSearch || paData[i].identity;
 
-		if(lstrDataString && lstrDataString.indexOf(paData[i].subString) !== -1) {
-			return paData[i].identity;
+		if (lstrDataString) {
+			if (!(lstrDataString.indexOf(paData[i].subString) === -1)) {
+				return paData[i].identity;
+			}
 		}
-
 		else if(lstrDataProp) {
 			return paData[i].identity;
 		}
 	}
 }
 
-function searchVersion(pstrDataString)
-{
+function searchVersion(pstrDataString) {
 	let lnIndex = pstrDataString.indexOf(this.versionSearchString);
-
-	if(lnIndex === -1)
-	{
-		return null;
+	if (lnIndex === -1) {
+		return;
 	}
-
 	return parseFloat(pstrDataString.substring(lnIndex + this.versionSearchString.length + 1));
 }
 
-function getBrowserAndVersion()
-{
-	var laBrowserData = [{
+function getBrowserAndVersion() {
+	let laBrowserData = [{
 		string: 		navigator.userAgent,
 		subString: 		"MSIE",
 		identity: 		"Explorer",
@@ -164,12 +138,10 @@ function getBrowserAndVersion()
 	};
 }
 
-function checkBrowser()
-{
+function checkBrowser() {
 	let loBrowserVersion = getBrowserAndVersion();
-
-	if(loBrowserVersion.browser === "Explorer" && loBrowserVersion.version < 8)
-	{
+	
+	if (loBrowserVersion.browser === "Explorer" && loBrowserVersion.version < 8) {
 		$("#upgrade-dialog").modal({
 			backdrop: "static",
 			keyboard: false
@@ -177,18 +149,17 @@ function checkBrowser()
 	}
 }
 
-function applyNavigation()
-{
+
+function applyNavigation() {
 	applyClickEvent();
 	applyNavigationFixForPhone();
 	applyScrollSpy();
 	applyStickyNavigation();
 }
 
-$(document).ready(function()
-{	
+$(document).ready(function() {
 	applyHeader();
-	applyNavigation(); 
+	applyNavigation();
 	applyMailTo();
 	applyResize();
 	checkHash();
